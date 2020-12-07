@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hey</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
+      <a href="/flights">All Flights</a>
+      <a href="/flights/new">Add Flights</a>
+      <a href="/destinations/new">Add Destination</a>
+    </nav>
+    <table id="list">
+        <thead>
+          <tr>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>Flight No.</th>
+            <th>Departure<br>Date/Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flights.forEach(function(f) { %>
+            <tr>
+              <td><%= f.airline %></td>
+              <td><%= f.airport %></td>
+              <td><%= f.flightNo %></td>
+              <td><%= f.departs %></td>
+              <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+
+
+</body>
+</html>
