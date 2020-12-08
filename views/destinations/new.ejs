@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
 <p>Please first ensure that the Destination is not in the dropdown
-    <select>
-        <% flight.destinations.forEach(function(p) { %>
-        <option><%= p.destination %></option>
-        <% }) %>
+    <select name='destination'>
+        <%= flight.destinations.map(p => %>
+        <option> <%= ${p.destination} %> </option>
+        <% ).join('') %>
     </select>
 </p>
 <form id='Add-Destination' action='/destinations' method='POST'>
