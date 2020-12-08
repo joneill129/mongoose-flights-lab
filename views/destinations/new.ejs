@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Document</title>
-</head>
-<body>
-    <form id='Add-Destination' action='/destinations' method='POST'>
-        <label>Destination:</label>
-        <input type='text' name='destination'>
-        <input type='submit' value='Add Destination'>
-       
+<%- include('../partials/header') %>
 
-    </form>
-</body>
-</html>
+<p>Please first ensure that the Destination is not in the dropdown
+    <select>
+        <% flight.destinations.forEach(function(p) { %>
+        <option><%= p.destination %></option>
+        <% }) %>
+    </select>
+</p>
+<form id='Add-Destination' action='/destinations' method='POST'>
+    <label>Destination:</label>
+    <input type='text' name='destination'>
+    <input type='submit' value='Add Destination'>
+</form>
+
+<%- include('../partials/footer') %>
