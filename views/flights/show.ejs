@@ -24,25 +24,25 @@
         <% }) %> </div><br>
       <div>Destination:</div>
       <ul>
-        <%= flight.destinations.map(p => %>
+        <%- destinations.map(p => %>
         <li><%= ${p.destination} %> </li>
         <% ).join('') %>
       </ul>
     </section>
     <br><br><br><br>
-    <form id="add-dest-to-list" action="/flights/<%= flight._id %>/destinations" method="POST">
-      <select name="destination">
+    <form id='add-dest-to-list' action='/flights/<%= flight._id %>/destinations' method='POST'>
+      <select name='destination'>
         <%- destinations.map(d => %>
-        <option value="name"> <% ${d.destination} %></option>
+        <option value='destination'> <% ${d.destination} %></option>
         <% ).join('') %>
       </select>
-      <button type="submit">Add to Flight</button>
+      <button type='submit'>Add to Flight</button>
     </form>
     <br>
     <h2>Create Ticket</h2>
-    <form id='add-ticket-form' method='POST' action="/flights/<%= flight._id %>/tickets">
+    <form id='add-ticket-form' method='POST' action='/flights/<%= flight._id %>/tickets'>
       <label>Seat:</label>
-      <input name="seat" required pattern="[A-F][1-9]\d?">
+      <input name='seat' required pattern='[A-F][1-9]\d?'>
       <label>Price:</label>
       <input type='number' name='price'>
       <input type='submit' value='Add Ticket'>

@@ -2,7 +2,7 @@ const Flight = require('../models/flight')
 const Destination = require('../models/destination')
 
 function newFlight(req, res) {
-    res.render('flights/new', { err: '' })
+    res.render('flights/new', {title: 'Add Flight', err: ''})
 }
 
 function create(req, res) {
@@ -13,7 +13,7 @@ function create(req, res) {
 
 function index(req, res) {
     Flight.find({}, function (err, flights) {
-        res.render('flights', { title: 'All Flights', flights })
+        res.render('flights', {title: 'All Flights', flights: flights})
     })
 }
 
