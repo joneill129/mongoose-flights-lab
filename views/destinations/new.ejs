@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
 <p>Please first ensure that the Destination is not in the dropdown
-    <select name='destinations'>
+    <select name='destination'>
       <% destinations.forEach(function(p) { %>
-        <option name='destination'><%= ${p.destination} %></option>
+        <option name='destination'><%= p.destination %></option>
       <% }) %>
     </select>
 </p>

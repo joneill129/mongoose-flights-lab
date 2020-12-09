@@ -21,7 +21,7 @@ function show(req, res) {
     Flight.findById(req.params.id)
         .populate('destinations').exec(function (err, flight) {
             Destination.find({ _id: { $nin: flight.destinations } }, function (err, destinations) {
-                res.render('flights/show', { flight, destinations })
+                res.render('flights/show', {title: 'Destination', flight, destinations })
             })
 
         })

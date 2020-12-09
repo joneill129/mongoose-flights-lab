@@ -1,13 +1,15 @@
 const Destination = require('../models/destination')
 const Flight = require('../models/flight')
 
-function newFlight(req, res) {
-    Destination.find(req.body, function (err, flights) {
-        res.render('destinations/new', { title: 'Add Destination', flights })
+function newDestination(req, res) {
+    Destination.find({}, function (err, destinations) {
+        console.log(destinations)
+        res.render('destinations/new', { title: 'Add Destination', destinations })
     })
 }
 
 function create(req, res) {
+    console.log(req.body)
     Destination.create(req.body, function (err, destination) {
         res.redirect('destinations/new')
     })
@@ -16,7 +18,7 @@ function create(req, res) {
 
 function addToDestinations(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
-        flight.destinations.push(req.body.destination)
+        flight.destinations.push(req.body.destinations)
         flight.save(function (err) {
             res.redirect(`/flights/${flight._id}`)
         })
@@ -25,7 +27,7 @@ function addToDestinations(req, res) {
 
 
 module.exports = {
-    new: newFlight,
+    new: newDestination,
     create,
     addToDestinations
 }
