@@ -25,11 +25,12 @@ const flightSchema = new Schema({
         type: Date,
         Default: function () {
             return new Date(new Date().setFullYear(new Date().getFullYear() + 1))
-        },
-        destinations: [{ type: Schema.Types.ObjectId, ref: 'Destination' }],
+        }
     },
+    destinations: [{ type: Schema.Types.ObjectId, ref: 'Destination' }],
 
     tickets: [ticketSchema]
+    
 }, {
     timestamps: true
 })

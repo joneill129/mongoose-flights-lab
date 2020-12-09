@@ -11,6 +11,7 @@ function newDestination(req, res) {
 function create(req, res) {
     console.log(req.body)
     Destination.create(req.body, function (err, destination) {
+        console.log(err)
         res.redirect('destinations/new')
     })
 }
@@ -18,7 +19,7 @@ function create(req, res) {
 
 function addToDestinations(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
-        flight.destinations.push(req.body.destinations)
+        flight.destinations.push(req.body.destination)
         flight.save(function (err) {
             res.redirect(`/flights/${flight._id}`)
         })

@@ -23,15 +23,15 @@
         <%= t.price %>
         <% }) %> </div><br>
       <div>Destination:</div>
-      <div><% destinations.forEach(function(d) { %>
+      <div><% flight.destinations.forEach(function(d) { %>
         <%= d.destination %>
         <% }) %> </div><br>
     </section>
     <br><br><br><br>
     <form id='add-dest-to-list' action='/flights/<%= flight._id %>/destinations' method='POST'>
-      <select name='destinations'>
+      <select name='destination'>
         <% destinations.map(d => { %>
-        <option value='destination'> <%= d.destination %></option>
+        <option value='<%= d._id %>'> <%= d.destination %></option>
         <% }).join('') %>
       </select>
       <button type='submit'>Add to Flight</button>
